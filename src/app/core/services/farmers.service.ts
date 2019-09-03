@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ export class FarmersService {
 
   constructor(private http: HttpClient) { }
 
-  getFarmers(): Observable<any> {
-    return this.http.get(this.SEARCH_URL)
+  getFarmers(): Promise<any> {
+    return this.http.get(this.SEARCH_URL).toPromise()
   }
 }
