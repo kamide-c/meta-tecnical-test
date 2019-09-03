@@ -1,11 +1,14 @@
 <mat-card>
-  <form>
+  <!-- <form> -->
     <table class="full-width" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nome or Doc#">
-            <mat-icon matSuffix>search</mat-icon>
+            <input matInput placeholder="Nome or Doc#" 
+              [formControl]="queryField"
+              (keydown.enter)="onSearch()"
+              >
+            <mat-icon matSuffix (click)="onSearch()">search</mat-icon>
           </mat-form-field>
         </td>
         <td>
@@ -27,5 +30,5 @@
         </td>
       </tr>
     </table>
-  </form>
+  <!-- </form> -->
 </mat-card>

@@ -1,8 +1,4 @@
-export class Document {
+export interface Document {
     documentNumber: string;
     documentType: string;
-
-    constructor(values?: Object) {
-        Object.assign(this, values);
-    }
 }
