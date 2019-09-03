@@ -1,0 +1,58 @@
+
+[
+	{
+		"name": "Jorge Manuel Leonardo da Cunha",
+        "documentNumber": "22758813602",
+        "documentType": "cpf",
+        "id": "114768262",
+        "cep": "68925250",
+		"address": "Rua da Piçarreira",
+		"number": 984,
+        "state": "AP",
+        "country": "Brasil"
+	},
+	{
+		"name": "Louise Andreia Rocha",
+        "documentNumber": "43824895048",
+        "documentType": "cpf",
+		"id": "380443521",
+		"cep": "40386104",
+		"address": "2ª Travessa Independência",
+		"number": 191,
+		"state": "BA",
+        "country": "Brasil"
+	},
+	{
+		"name": "Gabrielly Fabiana Teixeira",
+		"documentNumber": "22496790619",
+        "documentType": "cpf",
+		"id": "289828867",
+		"cep": "49087180",
+		"address": "Rua Efren Fernando Fontes",
+		"number": 269,
+		"state": "SE",
+        "country": "Brasil"
+	},
+	{
+		"name": "Edson Benjamin Viana",
+		"documentNumber": "95784883356",
+        "documentType": "cpf",
+		"id": "125613283",
+		"cep": "79500970",
+		"address": "Rua Coronel Carlos 1641",
+		"number": 639,
+        "state": "MS",
+        "country": "Brasil"
+	},
+	{
+		"name": "Kauê Edson Nathan Figueiredo",
+		"documentNumber": "17025882380",
+        "documentType": "cpf",
+		"id": "292385298",
+		"cep": "09436500",
+		"address": "Avenida Miro Attílio Peduzzi",
+		"number": 884,
+		"state": "SP",
+        "country": "Brasil"
+	}
+]
