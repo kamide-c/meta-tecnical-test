@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MockupModule } from './modules/mockup/mockup.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,8 @@ import { MockupModule } from './modules/mockup/mockup.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MockupModule
+    MockupModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

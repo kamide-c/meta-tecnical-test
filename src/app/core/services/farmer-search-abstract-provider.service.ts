@@ -5,6 +5,6 @@ import { Farmer } from 'src/app/shared/models/farmer';
   providedIn: 'root'
 })
 export declare abstract class FarmerSearchAbstractProvider {
-  abstract searchFarmers(params: SearchParams): Promise<Farmer[]>;
+  abstract searchFarmers(params: URLSearchParams): Promise<Farmer[]>;
 }
 
