@@ -10,19 +10,19 @@
       </td>
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Destinatário" disabled>
+          <input matInput placeholder="Destinatário" [formControl]="destinatario">
         </mat-form-field>
       </td>
     </tr>
     <tr>
       <td width="30%">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Do c#" disabled>
+          <input matInput placeholder="Do c#" [formControl]="doc">
         </mat-form-field>
       </td>
       <td width="70%">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Endereço" disabled>
+          <input matInput placeholder="Endereço" [formControl]="endereco">
         </mat-form-field>
       </td>
     </tr>

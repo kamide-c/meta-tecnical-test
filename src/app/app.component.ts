@@ -9,8 +9,7 @@ import { FarmerSearchAbstractProvider } from 'src/app/core/services/farmer-searc
 export class AppComponent {
   constructor(private myFarmerSearchProvider: FarmerSearchAbstractProvider) { }
 
-  async mySelectedFarmer(eve: Event) {
-    const param = new URLSearchParams('documentNumber='+eve);
-    this.myFarmerSearchProvider.searchFarmers(param)
+  mySelectedFarmer(eve: Event) {
+    console.log(eve)
   }
 }
