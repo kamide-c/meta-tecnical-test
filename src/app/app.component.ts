@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FarmerSearchAbstractProvider } from 'src/app/core/services/farmer-search-abstract-provider.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { FarmerSearchAbstractProvider } from 'src/app/core/services/farmer-searc
 export class AppComponent {
   constructor(private myFarmerSearchProvider: FarmerSearchAbstractProvider) { }
 
-  mySelectedFarmer(eve: Event) {
-    console.log(eve)
+  mySelectedFarmer(params) {
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
   }
 }
