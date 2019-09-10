@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { FarmerSearchAbstractProvider } from 'src/app/core/services/farmer-search-abstract-provider.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'meta-tecnical-test';
+  constructor(private myFarmerSearchProvider: FarmerSearchAbstractProvider) { }
+
+  mySelectedFarmer(eve: Event) {
+    console.log(eve)
+  }
 }

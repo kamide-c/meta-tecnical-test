@@ -4,7 +4,6 @@ import { Farmer } from 'src/app/shared/models/farmer';
 @Injectable({
   providedIn: 'root'
 })
-export declare abstract class FarmerSearchAbstractProvider {
+export abstract class FarmerSearchAbstractProvider {
   abstract searchFarmers(params: URLSearchParams): Promise<Farmer[]>;
 }
-

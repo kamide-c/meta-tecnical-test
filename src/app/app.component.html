@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<app-farmer-search-card 
+    (onFarmerSelectedEvent)="mySelectedFarmer($event)"
+    [farmerSearchAbstractProvider]="myFarmerSearchProvider">
+</app-farmer-search-card>

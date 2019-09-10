@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { MockupModule } from './modules/mockup/mockup.module';
-
-import { HttpClientModule } from '@angular/common/http';
+import { FarmerSearchCardModule } from './shared/components/farmer-search-card/farmer-search-card.module';
+import { FarmerSearchAbstractProvider } from './core/services/farmer-search-abstract-provider.service';
+import { JsonFarmerSearchProvider } from './core/providers/JsonFarmerSearchProvider';
 
 @NgModule({
   declarations: [
@@ -15,11 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-    MockupModule,
-    HttpClientModule
+    HttpClientModule,
+    FarmerSearchCardModule    
+  ],  
+  providers: [
+    {
+      provide: FarmerSearchAbstractProvider,
+      useClass: JsonFarmerSearchProvider,
+      deps: [HttpClient]
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
