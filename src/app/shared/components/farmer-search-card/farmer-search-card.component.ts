@@ -16,44 +16,47 @@ export class FarmerSearchCardComponent implements OnInit {
   private endereco = new FormControl({ value: '', disabled: true })
 
   ngOnInit() {
-    this.setByUrl()
-  }
-
-  async setByUrl() {
     const url = new URL(window.location.href);
     const param = new URLSearchParams(url.search);
+    const name = param.get('name');
+    const documentNumber = param.get('documentNumber');
+    param && param.toString() && name || documentNumber ? this.setByUrl(param) : null;
+  }
 
+  async setByUrl(param) {
     let farmerSearch: Promise<any> = this.farmerSearchAbstractProvider.searchFarmers(param);
     let find = await farmerSearch;
-    
-    this.destinatario = new FormControl({ value: find[0].name, disabled: true });
-    this.doc = new FormControl({ value: find[0].documentNumber, disabled: true });
-    this.endereco = new FormControl({ value: find[0].address + ' ' + find[0].number + ' ' + find[0].cep, disabled: true });
+
+    this.setValues(find[0]);
   }
 
   async onSearch() {
+    let farmer;
     let findByName = this.search.value == '' ? await this.findAll() : await this.searchByName()
     let findByDoc = await this.searchByDoc()
     if (findByDoc.length == 1) {
-      this.destinatario = new FormControl({ value: findByDoc[0].name, disabled: true });
-      this.doc = new FormControl({ value: findByDoc[0].documentNumber, disabled: true });
-      this.endereco = new FormControl({ value: findByDoc[0].address + ' ' + findByDoc[0].number + ' ' + findByDoc[0].cep, disabled: true });
-
-      let param = new URLSearchParams()
-      param.set('documentNumber', this.doc.value)
-      this.onFarmerSelectedEvent.emit(param);
+      farmer = findByDoc[0]
+      this.setUrlParam('documentNumber');
     }
     else {
       const randomly = arr => arr[Math.floor(Math.random() * arr.length)];
-      const random = randomly(findByName)
-      this.destinatario = new FormControl({ value: random.name, disabled: true });
-      this.doc = new FormControl({ value: random.documentNumber, disabled: true });
-      this.endereco = new FormControl({ value: random.address + ' ' + random.number + ' ' + random.cep, disabled: true });
-
-      let param = new URLSearchParams()
-      param.set('name', this.destinatario.value)
-      this.onFarmerSelectedEvent.emit(param);
+      farmer = randomly(findByName)
+      this.setUrlParam('name');
     }
+    this.setValues(farmer);
+  }
+
+  setValues(val) {
+    this.destinatario = new FormControl({ value: val.name, disabled: true });
+    this.doc = new FormControl({ value: val.documentNumber, disabled: true });
+    this.endereco = new FormControl({ value: val.address + ' ' + val.number + ' ' + val.cep, disabled: true });
+  }
+
+  setUrlParam(query) {
+    let param = new URLSearchParams()
+    param.set(query, this.search.value)
+    console.log(param.toString())
+    this.onFarmerSelectedEvent.emit(param);
   }
 
   searchByName(): Promise<any> {
