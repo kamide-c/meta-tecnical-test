@@ -4,7 +4,7 @@
     <tr>
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Nome or Doc#">
+          <input matInput placeholder="Nome or Doc#" [formControl]="search" (keydown.enter)="onSearch()">
           <mat-icon matSuffix (click)="onSearch()">search</mat-icon>
         </mat-form-field>
       </td>
@@ -27,6 +27,5 @@
       </td>
     </tr>
   </table>
-  <button (click)="onSearch()">search</button>
   <!-- </form> -->
 </mat-card>

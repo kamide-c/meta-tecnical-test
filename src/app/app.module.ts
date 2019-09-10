@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FarmerSearchCardModule } from './shared/components/farmer-search-card/farmer-search-card.module';
+import { FarmerSearchAbstractProvider } from './core/services/farmer-search-abstract-provider.service';
+import { JsonFarmerSearchProvider } from './core/providers/JsonFarmerSearchProvider';
 
 @NgModule({
   declarations: [
@@ -14,8 +16,14 @@ import { FarmerSearchCardModule } from './shared/components/farmer-search-card/f
     BrowserAnimationsModule,
     HttpClientModule,
     FarmerSearchCardModule    
+  ],  
+  providers: [
+    {
+      provide: FarmerSearchAbstractProvider,
+      useClass: JsonFarmerSearchProvider,
+      deps: [HttpClient]
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
