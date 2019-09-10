@@ -4,7 +4,6 @@ O banco de dados está mockado, não há backend.
 Dados para realizar o teste:
 
 <pre>
-```json
   [
     {
       "name": "Jorge Manuel Leonardo da Cunha",
@@ -27,7 +26,6 @@ Dados para realizar o teste:
       "documentNumber": "17025882380",
     }
   ]
-```
 </pre>
 
 # MetaTecnicalTest
