@@ -1,3 +1,30 @@
+# Para realizar os testes
+
+O banco de dados está mockado, não há backend.
+Dados para realizar o teste:
+[
+  {
+    "name": "Jorge Manuel Leonardo da Cunha",
+    "documentNumber": "22758813602",
+  },
+  {
+    "name": "Louise Andreia Rocha",
+    "documentNumber": "43824895048",
+  },
+  {
+    "name": "Gabrielly Fabiana Teixeira",
+    "documentNumber": "22496790619",
+  },
+  {
+    "name": "Edson Benjamin Viana",
+    "documentNumber": "95784883356",
+  },
+  {
+    "name": "Kauê Edson Nathan Figueiredo",
+    "documentNumber": "17025882380",
+  }
+]
+
 # MetaTecnicalTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.

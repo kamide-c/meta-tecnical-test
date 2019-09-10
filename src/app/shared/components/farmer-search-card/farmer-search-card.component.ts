@@ -21,14 +21,14 @@ export class FarmerSearchCardComponent {
     if (findByDoc.length == 1) {
       this.destinatario = new FormControl({value:findByDoc[0].name, disabled: true});
       this.doc = new FormControl({value:findByDoc[0].documentNumber, disabled: true});
-      this.endereco = new FormControl({value:findByDoc[0].address, disabled: true});
+      this.endereco = new FormControl({value:findByDoc[0].address + ' ' + findByDoc[0].number + ' ' + findByDoc[0].cep, disabled: true});
     }
     else {
       const randomly = arr => arr[Math.floor(Math.random() * arr.length)];
       const random = randomly(findByName)
       this.destinatario = new FormControl({value:random.name, disabled: true});
       this.doc = new FormControl({value:random.documentNumber, disabled: true});
-      this.endereco = new FormControl({value:random.address, disabled: true});
+      this.endereco = new FormControl({value:random.address + ' ' + random.number + ' ' + random.cep, disabled: true});
     }
     // this.onFarmerSelectedEvent.emit(this.search.value);
   }
