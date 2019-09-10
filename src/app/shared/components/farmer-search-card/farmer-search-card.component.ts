@@ -1,24 +1,28 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { FarmerSearchAbstractProvider } from 'src/app/core/services/farmer-search-abstract-provider.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-farmer-search-card',
   templateUrl: './farmer-search-card.component.html',
   styleUrls: ['./farmer-search-card.component.scss']
 })
-export class FarmerSearchCardComponent implements OnInit {
+export class FarmerSearchCardComponent {
   @Input() farmerSearchAbstractProvider: FarmerSearchAbstractProvider;
-  @Output() onPartnerSelectedEvent = new EventEmitter();
-
-  queryField = new FormControl();
+  @Output() onFarmerSelectedEvent = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges (changes: SimpleChanges) {
+    try {
+      console.log(this.farmerSearchAbstractProvider); //Async get data but i want
+    } catch(err) {              //to do it more purer
+      console.log(err);
+    }
   }
 
   onSearch() {
+    console.log(this.farmerSearchAbstractProvider);
+    this.onFarmerSelectedEvent.emit({teste:'teste'});
   }
 
 }
